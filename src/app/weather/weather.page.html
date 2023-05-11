@@ -1,0 +1,97 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>weather</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="medium">MY WEATHER</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div  style="background-color:deeppink; border-radius: 10%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: medium; text-align: center; margin: 10%">
+   <br>
+    <h6 >Select your favourite weather:</h6>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="myWeather">
+        <ion-item>
+          <ion-label style="font-size: small;">Sunny</ion-label>
+          <ion-radio value="Sunny"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Cloudy</ion-label>
+          <ion-radio value="Cloudy"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Raining</ion-label>
+          <ion-radio value="Raining"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Snowing</ion-label>
+          <ion-radio value="Snowing"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <br>
+    <h6 >Select your favourite day:</h6>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="myDay">
+        <ion-item>
+          <ion-label style="font-size: small;">Monday</ion-label>
+          <ion-radio value="Monday"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Tuesday</ion-label>
+          <ion-radio value="Tuesday"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Wednesday</ion-label>
+          <ion-radio value="Wednseday"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Thursday</ion-label>
+          <ion-radio value="Thursday"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Friday</ion-label>
+          <ion-radio value="Friday"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Saturday</ion-label>
+          <ion-radio value="Saturday"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: small;">Sunday</ion-label>
+          <ion-radio value="Sunday"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <br>
+    <div>
+      <ion-button size="small" (click)="onSave()">Save</ion-button>
+      <ion-button size="small" [routerLink]="['/home']">Return</ion-button>
+    </div>
+  </div>
+  <ion-button (click)="getWeather()">Get Weather</ion-button>
+  <ion-card *ngIf="weather">
+    <ion-card-header>
+      {{ weather.name }}, {{ weather.sys.country }}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="6">Temperature:</ion-col>
+        <ion-col size="6">{{ weather.main.temp }}&deg;C</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Humidity:</ion-col>
+        <ion-col size="6">{{ weather.main.humidity }}%</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">Weather:</ion-col>
+        <ion-col size="6">{{ weather.weather[0].description }}</ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,19 +1,47 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar color="success">
+    <ion-title>Homepage</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="medium">HOMEPAGE</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
- <h3>Welcome to Mobile Apps Starter project 2023</h3>
+  <div id="container"
+    style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+    <ion-card style="background-color: deeppink;">
+      <ion-card-header>
+        <ion-card-title>{{myName}}</ion-card-title>
+        <br>
+        <ion-card-subtitle>{{myAge}}, {{myLocation}}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-button color="secondary" size="large" [routerLink]="['/weather']" routerDirection="forward">myWeather
+      <ion-icon slot="icon-only" name="cloud"></ion-icon>
+    </ion-button>
+
+    <ion-button color="danger" size="large" [routerLink]="['/news']" routerDirection="forward">News
+      <ion-icon slot="icon-only" name="newspaper"></ion-icon>
+    </ion-button>
+    <br>
+    <ion-button color="warning" size="large" [routerLink]="['/movies']" routerDirection="forward">Movies
+      <ion-icon slot="icon-only" name="tv"></ion-icon>
+    </ion-button>
+
+    <ion-button color="success" size="large" [routerLink]="['/details']" routerDirection="forward">myDetails
+      <ion-icon name="information-outline"></ion-icon>
+    </ion-button>
+
+    <ion-card style="background-color: darkorchid; margin-left: 20%; margin-right: 20%;">
+      <ion-card-header>
+        <ion-card-title>{{myWeather}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{myDay}}</ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
